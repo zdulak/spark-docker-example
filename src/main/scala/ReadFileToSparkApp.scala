@@ -1,9 +1,9 @@
-object ReadFileFromHadoopApp extends App {
+object ReadFileToSparkApp extends App {
 
   import org.apache.spark.sql.SparkSession
   val spark = SparkSession
     .builder()
-    .appName("ReadFileFromHadoopApp")
+    .appName("ReadFileToSparkApp")
     .master("local[*]")
     .getOrCreate()
 
@@ -11,7 +11,7 @@ object ReadFileFromHadoopApp extends App {
     .read
     .option("header", true)
     .option("inferSchema", true)
-    .csv("hdfs://host.docker.internal:9000/user/damian/stocks.csv")
+    .csv(getClass.getResource("/stocks.csv").getPath)
 
   df.show()
 }
