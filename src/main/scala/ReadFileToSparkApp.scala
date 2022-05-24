@@ -11,7 +11,7 @@ object ReadFileToSparkApp extends App {
     .read
     .option("header", true)
     .option("inferSchema", true)
-    .csv(getClass.getResource("/stocks.csv").getPath)
+    .csv("/opt/spark/work-dir/stocks.csv")
 
   df.show()
 }

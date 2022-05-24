@@ -10,3 +10,5 @@
 project/project/
 project/target/
 target/
+# docker
+docker/*.jar
